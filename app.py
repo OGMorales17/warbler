@@ -5,7 +5,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 
 from forms import UserAddForm, LoginForm, MessageForm, UserEditForm
-from models import Likes, db, connect_db, User, Message
+from models import db, connect_db, User, Message, Likes
 
 CURR_USER_KEY = "curr_user"
 
@@ -64,8 +64,6 @@ def signup():
     If the there already is a user with that username: flash message
     and re-present form.
     """
-
-    # form = UserAddForm()
     if CURR_USER_KEY in session:
         del session[CURR_USER_KEY]
     form = UserAddForm()
@@ -256,7 +254,7 @@ def add_like(message_id):
 
 # In the result the following function is edit_profile()
 @app.route('/users/profile', methods=["GET", "POST"])
-def profile():
+def edit_profile():
     """Update profile for current user."""
 
     # IMPLEMENT THIS

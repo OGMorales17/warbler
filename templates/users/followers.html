@@ -4,6 +4,12 @@
   <div class="col-sm-9">
     <div class="row">
 
+{% extends 'users/detail.html' %}
+
+{% block user_details %}
+  <div class="col-sm-9">
+    <div class="row">
+
       {% for follower in user.followers %}
 
         <div class="col-lg-4 col-md-6 col-12">
@@ -41,3 +47,4 @@
   </div>
 
 {% endblock %}
+

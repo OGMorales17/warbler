@@ -8,9 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 bcrypt = Bcrypt()
 db = SQLAlchemy()
 
-# Note that the follows table has an unusual arrangement: it has two foreign keys to the same table. Why?
-#
-
 
 class Follows(db.Model):
     """Connection of a follower <-> followed_user."""
@@ -48,7 +45,6 @@ class Likes(db.Model):
     message_id = db.Column(
         db.Integer,
         db.ForeignKey('messages.id', ondelete='cascade')
-        # unique=True
     )
 
 
